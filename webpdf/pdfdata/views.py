@@ -8,12 +8,6 @@ from .models import PDFFile
 def pdfdata(request):
     return render(request, 'pdfdata/pdfdata.html')
 
-from django.conf import settings
-from django.http import HttpResponse
-from .models import PDFFile
-import requests
-import os
-
 def download_pdf(request):
     if request.method == 'POST':
         try:

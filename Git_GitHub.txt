@@ -15,6 +15,7 @@ git push link_repository_github master # đẩy lên github
 git remote add origin link_repository_github # tạo tên cho đường dẫn là origin(tên gì cũng đc)
 git push origin master # đẩy lên github
 git push -u origin master #-u giúp thiết lập origin master làm mặc định cho lần push tiếp theo
+git push 
 
 clone về từ github:
 cmd vào thư mục cần clone
