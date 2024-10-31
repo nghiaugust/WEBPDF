@@ -3,7 +3,6 @@
         <h1>Upload PDF from URL</h1>
         <form method="post" action="{% url 'pdfdata:uploaddata' %}">
             {% csrf_token %}
-            <input type="hidden" name="pdf_url" value="https://ktdbcl.actvn.edu.vn/files/thong-bao/lich-thi/ke-hoach-thi-kthp-hk1-nam-23-24-dot-2.pdf"> 
-            <button type="submit">Upload</button>
+            <button type="submit">Upload All</button>
         </form>
     {% endblock %}
