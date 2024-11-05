@@ -1,7 +1,7 @@
 b1 cài thư viện
 pip install django
 pip install mysqlclient
-pip install requestsv
+pip install requests
 pip install djangorestframework
 python -m pip install Pillow
 
