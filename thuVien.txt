@@ -1,3 +1,23 @@
+b1 cài thư viện
 pip install django
+pip install mysqlclient
+pip install requestsv
 pip install djangorestframework
 python -m pip install Pillow
+
+b2 chỉnh sửa  database trong setting
+'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django', # thay đổi
+        'USER': 'root',
+        'PASSWORD': 'root', # thay đổi
+        'HOST': 'localhost',
+        'PORT': '3306', # thay đổi nếu đổi port
+    }
+
+b3 update cơ sở dữ liệu
+python manage.py makemigrations
+python manage.py migrate
+
+b4 run server
+python manage.py runserver 8888
