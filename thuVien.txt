@@ -16,7 +16,9 @@ b2 chỉnh sửa  database trong setting
     }
 
 b3 update cơ sở dữ liệu
-python manage.py makemigrations
+xoá 2 file 0001 .py .pyc ở migrations của pdf_convert để xoá file tạo database
+
+python manage.py makemigrations pdf_convert
 python manage.py migrate
 
 b4 run server

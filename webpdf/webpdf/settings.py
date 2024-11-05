@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'pdfdata',
     'pdf_convert',
     'rest_framework',
-    'testpdf',
     'testimage',
 ]
 
