@@ -22,4 +22,7 @@ urlpatterns = [
     path('', include('app.urls')),
     path('add_data/', include('add_data.urls')),
     path('pdfdata/', include('pdfdata.urls')),
+    path('pdf_convert/', include('pdf_convert.urls')),
+    path('testpdf/', include('testpdf.urls')),
+    path('testimage/', include('testimage.urls')),
 ]

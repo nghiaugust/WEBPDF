@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,10 @@ INSTALLED_APPS = [
     'app',
     'add_data',
     'pdfdata',
+    'pdf_convert',
+    'rest_framework',
+    'testpdf',
+    'testimage',
 ]
 
 MIDDLEWARE = [
@@ -130,7 +135,7 @@ STATIC_URL = 'static/'
 
 # Media files (for uploaded files)
 MEDIA_URL = '/media/'  # URL để truy cập các file trong MEDIA_ROOT
-MEDIA_ROOT = BASE_DIR / 'media'  # Thư mục lưu trữ các file tải lên trong hệ thống file
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Thư mục lưu trữ các file tải lên trong hệ thống file
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

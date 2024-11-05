@@ -1,3 +1,6 @@
+django-admin startproject tenproject
+python manage.py startapp tenapp
+
 Django templates
 
 Trong Django, các cặp dấu {% %}, {{ }}, và {# #} là các thành phần chính của template engine, giúp bạn hiển thị nội dung động và điều khiển logic trong trang HTML của mình

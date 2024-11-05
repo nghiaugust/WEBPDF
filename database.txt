@@ -1,0 +1,7 @@
+File
+    title
+    fileType
+    infomation
+    linkDownload : link tai file
+    url 
+    filePath
