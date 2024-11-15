@@ -1,0 +1,26 @@
+git init # khởi động
+git status # trạng thái
+git add . # chuẩn bị lưu
+git reset # bỏ thư mục chuẩn bị lưu
+git commit -m 'ghi chú' # lưu
+git log # xem lịch sử
+git checkout id_commit(master) # quay lại nhánh lúc commit
+git branch # xem nhánh đang ở
+git checkout -b namebranch # tạo nhánh mới
+git merge namebranch # nhập nhánh namebranch vào nhánh đang đứng
+git branch -d namebranch # xoá branch
+
+xung đột -> giải quyết xong -> git add. -> git commit
+git push link_repository_github master # đẩy lên github
+git remote add origin link_repository_github # tạo tên cho đường dẫn là origin(tên gì cũng đc)
+git push origin master # đẩy lên github
+git push -u origin master #-u giúp thiết lập origin master làm mặc định cho lần push tiếp theo
+git push 
+
+clone về từ github:
+cmd vào thư mục cần clone
+git clone link_repository_github
+
+git pull #lấy code về
+
+git fetch origin # Cập nhật trạng thái các nhánh từ xa, bao gồm các commit mới hoặc các nhánh mới mà người khác đã đẩy (push) lên.Không thay đổi nhánh hiện tại của bạn, chỉ cập nhật dữ liệu để bạn có thể xem trước

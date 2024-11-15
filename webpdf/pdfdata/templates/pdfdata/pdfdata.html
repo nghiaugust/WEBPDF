@@ -1,0 +1,8 @@
+{% extends "app/base.html" %}
+    {% block content %}
+        <h1>Upload PDF from URL</h1>
+        <form method="post" action="{% url 'pdfdata:uploaddata' %}">
+            {% csrf_token %}
+            <button type="submit">Upload All</button>
+        </form>
+    {% endblock %}

@@ -1,0 +1,57 @@
+django-admin startproject tenproject
+python manage.py startapp tenapp
+python manage.py createsuperuser
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py migrate oauth2_provider # tạo csdl để quản lý tocken như thời gian hết hạn
+
+Django templates
+
+Trong Django, các cặp dấu {% %}, {{ }}, và {# #} là các thành phần chính của template engine, giúp bạn hiển thị nội dung động và điều khiển logic trong trang HTML của mình
+
+{% if %} và {% elif %} và {% else %}: Kiểm tra điều kiện và thực thi đoạn mã nếu điều kiện đó đúng. Cách này tương tự như câu lệnh if trong các ngôn ngữ lập trình khác.
+{% if user.is_authenticated %}
+    <p>Chào {{ user.username }}!</p>
+{% else %}
+    <p>Bạn chưa đăng nhập.</p>
+{% endif %}
+
+{% for %} và {% empty %} và {% endfor %}: Sử dụng vòng lặp để lặp qua các phần tử trong một danh sách hoặc queryset.
+{% for item in dulieu_list %}
+    <p>{{ item.name }}</p>
+{% empty %}
+    <p>Không có dữ liệu nào.</p>
+{% endfor %}
+
+{% block %} và {% endblock %}: Định nghĩa các khối nội dung mà template con có thể ghi đè. Các khối block phải có trong template cơ sở để cho phép template con điều chỉnh nội dung.
+{% block content %}
+    <h2>Nội dung ở đây</h2>
+{% endblock %}
+
+Dùng để hiển thị giá trị của các biến trong template. Bên trong {{ }}, bạn có thể truy cập vào biến truyền từ view, như các thuộc tính của một đối tượng, các biến đơn lẻ hoặc các hàm trả về giá trị.
+
+views
+views đóng vai trò là "cầu nối" giữa dữ liệu và giao diện hiển thị của ứng dụng
+    hàm render() giúp hiển thị template (trang web) cho người dùng kèm theo dữ liệu cần thiết từ server
+
+tạo api
+APIView trong DRF tương tự Django View nhưng hỗ trợ sẵn RESTful và trả về JSON tự động
+class UserListAPIView(APIView):
+    def get(self, request):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)  # Dùng serializer để format dữ liệu
+        return Response(serializer.data)
+generics trong DRF cung cấp các lớp sẵn có để nhanh chóng tạo API CRUD mà không cần viết lại logic
+class UserListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+ViewSet giúp gom nhóm các hành động (list, create, retrieve, update, delete) vào một lớp duy nhất -> sử dụng router
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

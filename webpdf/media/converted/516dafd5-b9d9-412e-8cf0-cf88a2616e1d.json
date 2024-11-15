@@ -1,0 +1,16 @@
+{
+    "pid": "516dafd5-b9d9-412e-8cf0-cf88a2616e1d",
+    "lang": [
+        "eng"
+    ],
+    "status": "error",
+    "input": "C:\\HocTap\\Python\\WEBPDF\\webpdf\\media\\pdfs\\Qu\u1ea3n_tr\u1ecb_d\u1ef1_\u00e1n_ph\u1ea7n_m\u1ec1m_njKAvHE.pdf",
+    "output": "media\\converted\\516dafd5-b9d9-412e-8cf0-cf88a2616e1d.pdf",
+    "output_json": "media\\converted\\516dafd5-b9d9-412e-8cf0-cf88a2616e1d.json",
+    "output_txt": "media\\converted\\516dafd5-b9d9-412e-8cf0-cf88a2616e1d.txt",
+    "result": "read_params_file: Can't open C:\\HocTap\\Python\\WEBPDF\\webpdf\\media\\pdfs\\Qu?n_tr?_d?_n_ph?n_m?m_njKAvHE.pdf\r\nread_params_file: Can't open media\\converted\\516dafd5-b9d9-412e-8cf0-cf88a2616e1d.pdf\r\nError, cannot read input file --sidecar: No such file or directory\r\nError during processing.",
+    "code": 1,
+    "created": "2024-11-07T15:57:14.117053",
+    "expire": "2024-11-08T15:57:14.117053",
+    "finished": "2024-11-07T15:57:15.188429"
+}

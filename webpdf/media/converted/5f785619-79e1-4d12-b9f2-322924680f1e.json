@@ -1,0 +1,16 @@
+{
+    "pid": "5f785619-79e1-4d12-b9f2-322924680f1e",
+    "lang": [
+        "eng"
+    ],
+    "status": "error",
+    "input": "C:\\HocTap\\Python\\WEBPDF\\webpdf\\media\\pdfs\\Qu\u1ea3n_tr\u1ecb_d\u1ef1_\u00e1n_ph\u1ea7n_m\u1ec1m_WEJiCvi.pdf",
+    "output": "media\\converted\\5f785619-79e1-4d12-b9f2-322924680f1e.word",
+    "output_json": "media\\converted\\5f785619-79e1-4d12-b9f2-322924680f1e.json",
+    "output_txt": "media\\converted\\5f785619-79e1-4d12-b9f2-322924680f1e.txt",
+    "result": "read_params_file: Can't open C:\\HocTap\\Python\\WEBPDF\\webpdf\\media\\pdfs\\Qu?n_tr?_d?_n_ph?n_m?m_WEJiCvi.pdf\r\nread_params_file: Can't open media\\converted\\5f785619-79e1-4d12-b9f2-322924680f1e.word\r\nread_params_file: Can't open --output-format\r\nread_params_file: Can't open word\r\nError, cannot read input file --sidecar: No such file or directory\r\nError during processing.",
+    "code": 1,
+    "created": "2024-11-07T15:57:48.784678",
+    "expire": "2024-11-08T15:57:48.784678",
+    "finished": "2024-11-07T15:57:49.100061"
+}

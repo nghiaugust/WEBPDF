@@ -1,0 +1,9 @@
+File
+    title
+    fileType
+    infomation
+    linkDownload : link tai file
+    url 
+    filePath
+    active: boolean ; kiểm tra xem file tồn tại không
+    convert: boolean ; kiểm tra xem file đã convert chưa
