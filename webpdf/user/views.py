@@ -3,10 +3,18 @@ from .models import User
 from .serializers import UserSerializer
 from rest_framework.response import Response
 import requests
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
+# user
+class IsSelf(permissions.BasePermission):
+    #Custom permission to only allow users to access their own data.
+    def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
+        return obj == request.user  # Chỉ cho phép truy cập nếu obj là chính user đang đăng nhập
+    
 class UserViewSet(viewsets.ViewSet,
-                  generics.ListAPIView, 
                   generics.CreateAPIView,
                   generics.RetrieveAPIView):
     queryset = User.objects.filter(is_active= True)
@@ -14,9 +22,20 @@ class UserViewSet(viewsets.ViewSet,
 
     def get_permissions(self):
         if self.action == 'retrieve':
-            return [permissions.IsAuthenticated()]
-        
+            # Sử dụng quyền kiểm tra nếu đây là tài khoản của chính người dùng
+            return [permissions.IsAuthenticated(), IsSelf()]
         return [permissions.AllowAny()]
+
+    def retrieve(self, request, *args, **kwargs):
+        # Lấy thông tin user từ URL (thông qua pk)
+        user = get_object_or_404(User, pk=kwargs.get('pk'))
+
+        # Kiểm tra quyền truy cập
+        self.check_object_permissions(request, user)
+
+        # Nếu hợp lệ, trả về thông tin user
+        serializer = self.get_serializer(user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class LoginUser(generics.GenericAPIView):
     """

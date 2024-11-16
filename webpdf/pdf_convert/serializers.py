@@ -4,4 +4,7 @@ from .models import PDFFile
 class PDFFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = PDFFile
-        fields = ['id', 'file', 'uploaded_at']
+        fields = '__all__'
+
+class PDFConvertRequestSerializer(serializers.Serializer):
+    id = serializers.IntegerField()

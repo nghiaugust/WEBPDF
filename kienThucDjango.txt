@@ -55,3 +55,24 @@ ViewSet giúp gom nhóm các hành động (list, create, retrieve, update, dele
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+set quyền cho các api
+from rest_framework import permissions
+
+class IsRoleUser(permissions.BasePermission):
+    """
+    Custom permission để kiểm tra user có role là 'user'.
+    """
+    def has_permission(self, request, view):
+        # Kiểm tra nếu user đã đăng nhập và có role là 'user'
+        return request.user.is_authenticated and request.user.role == 'user'
+
+from rest_framework import generics
+from .models import SomeModel
+from .serializers import SomeModelSerializer
+from .permissions import IsRoleUser
+
+class SomeModelListCreateView(generics.ListCreateAPIView):
+    queryset = SomeModel.objects.all()
+    serializer_class = SomeModelSerializer
+    permission_classes = [IsRoleUser]  # Chỉ user có role là 'user' mới được phép truy cập

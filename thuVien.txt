@@ -22,8 +22,11 @@ b2 chỉnh sửa  database trong setting
 b3 update cơ sở dữ liệu
 xoá 2 file 0001 .py .pyc ở migrations của pdf_convert để xoá file tạo database
 
-python manage.py makemigrations pdf_convert
+tạo superuser
+python manage.py createsuperuser
+
+python manage.py makemigrations user
 python manage.py migrate
 
 b4 run server
-python manage.py runserver 8888
+python manage.py runserver 8000

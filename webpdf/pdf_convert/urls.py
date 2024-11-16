@@ -1,10 +1,8 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import PDFFileViewSet
-
-router = DefaultRouter()
-router.register(r'pdfs', PDFFileViewSet)
+from django.urls import path
+from .views import UploadPDFView, ConvertPDFView, GetConvertedPDFView
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('upload/', UploadPDFView.as_view(), name='upload_pdf'),
+    path('convert/<int:pk>/', ConvertPDFView.as_view(), name='convert_pdf'),
+    path('get/<int:pk>/', GetConvertedPDFView.as_view(), name='get_converted_pdf'),
 ]

@@ -1,9 +1,10 @@
 from django.db import models
 
-# Create your models here.
 class PDFFile(models.Model):
-    file = models.FileField(upload_to='pdfs/')
+    name = models.CharField(max_length=255)
+    original_file = models.FileField(upload_to='pdfdata/')
+    converted_file = models.FileField(upload_to='pdfconvert/', blank=True, null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"PDF {self.id}"
+        return self.name
