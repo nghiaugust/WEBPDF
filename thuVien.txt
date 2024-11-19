@@ -6,6 +6,8 @@ pip install djangorestframework
 python -m pip install Pillow
 pip install pytesseract pdf2image reportlab pillow
 pip install ocrmypdf
+pip install PyPDF2 # xu ly lay text tu pdf
+
 python -m pip install django-cors-headers
 
 pip install django-oauth-toolkit

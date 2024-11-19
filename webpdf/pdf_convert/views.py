@@ -4,6 +4,7 @@ from .models import PDFFile
 from .serializers import PDFFileSerializer
 import ocrmypdf
 import os
+from PyPDF2 import PdfReader
 
 # Upload PDF View
 class UploadPDFView(generics.CreateAPIView):
@@ -14,6 +15,18 @@ class UploadPDFView(generics.CreateAPIView):
 class ConvertPDFView(generics.UpdateAPIView):
     queryset = PDFFile.objects.all()
     serializer_class = PDFFileSerializer
+    #trich xuat van ban
+    def extract_text_from_pdf(self, pdf_path):
+        """Hàm trích xuất văn bản từ file PDF"""
+        try:
+            reader = PdfReader(pdf_path)
+            text = ""
+            for page in reader.pages:
+                text += page.extract_text()
+            return text
+        except Exception as e:
+            raise ValueError(f"Lỗi khi trích xuất văn bản: {str(e)}")
+        
     def update(self, request, *args, **kwargs):
         pdf_file = self.get_object()
         input_path = pdf_file.original_file.path
@@ -46,7 +59,11 @@ class ConvertPDFView(generics.UpdateAPIView):
 
             # Cap nhat file da duoc convert
             try:
+                # Trích xuất văn bản từ file đã OCR
+                extracted_text = self.extract_text_from_pdf(output_path)
+                # luu database
                 pdf_file.converted_file.name = f'pdfconvert/{output_filename}'
+                pdf_file.text_content = extracted_text  # Lưu nội dung vào TextField
                 pdf_file.save()
             except Exception as e:
                 return Response({"error": f"Loi cap nhat co so du lieu: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

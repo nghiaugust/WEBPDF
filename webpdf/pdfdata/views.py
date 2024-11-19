@@ -76,14 +76,6 @@ def download_pdf(request):
             return HttpResponse("Không thể truy cập vào trang đăng nhập")
     return HttpResponse("Invalid request")
 
-# Cấu hình logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='download_all_pdf.log',
-    filemode='a'
-)
-
 # Hàm đăng nhập và lấy token
 def login_and_get_token():
     login_url = 'https://backend8181.bcy.gov.vn/api/users/login'
