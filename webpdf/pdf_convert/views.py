@@ -30,7 +30,7 @@ class ConvertPDFView(generics.UpdateAPIView):
 
             # Run OCR de chuyen doi file
             try:
-                ocrmypdf.ocr(input_path, output_path, force_ocr=True)
+                ocrmypdf.ocr(input_path, output_path, force_ocr=True, lang="vie")
             except ocrmypdf.exceptions.PriorOcrFoundError:
                 return Response({"error": "PDF da co du lieu OCR."}, status=status.HTTP_400_BAD_REQUEST)
             except ocrmypdf.exceptions.MissingDependencyError:
