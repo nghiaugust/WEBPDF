@@ -5,6 +5,8 @@ import requests
 from django.http import HttpResponse
 from .models import PDFFile
 import logging
+from django.views.decorators.csrf import csrf_exempt
+import urllib3
 # Create your views here.
 def pdfdata(request):
     return render(request, 'pdfdata/pdfdata.html')
@@ -85,20 +87,19 @@ logging.basicConfig(
 # Hàm đăng nhập và lấy token
 def login_and_get_token():
     login_url = 'https://backend8181.bcy.gov.vn/api/users/login'
-    login_data = {
-        'userName': os.getenv('API_USERNAME', 'ldthuan@bcy.gov.vn'),
-        'password': os.getenv('API_PASSWORD', '123456')
+    login_data = {'userName': 'ldthuan@bcy.gov.vn', 'password': '123456'}
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'User-Agent': 'PostmanRuntime/7.42.0',
+        'Accept': '*/*',
+        'Connection': 'keep-alive'
     }
     try:
-        response = requests.post(login_url, json=login_data, verify=False)
+        response = requests.post(login_url, data=login_data, headers=headers, verify=False)
         response.raise_for_status()
-        json_response = response.json()
-        return json_response['data']['tokenInfo']['accessToken']
-    except KeyError as e:
-        logging.error("Phản hồi không hợp lệ khi đăng nhập: %s", e)
-        raise
+        return response.json()['data']['tokenInfo']['accessToken']
     except requests.exceptions.RequestException as e:
-        logging.error("Lỗi khi đăng nhập: %s", e)
+        logging.error("Lỗi khi kết nối: %s", e)
         raise
 
 # Hàm tải tài liệu theo từng trang
@@ -150,17 +151,19 @@ def save_file(headers, name, download_url):
         logging.error("Lỗi không xác định khi lưu file %s: %s", name, e)
         
 # Hàm chính
+@csrf_exempt
 def download_all_pdf(request):
     if request.method != 'POST':
         return HttpResponse("Invalid request", status=405)
 
     try:
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         access_token = login_and_get_token()
         headers = {
             'Authorization': f'Bearer {access_token}',
             'Content-Type': 'application/json'
         }
-
+        print("dang nhap thanh cong")
         page = 1
         size = 10
 
@@ -184,7 +187,8 @@ def download_all_pdf(request):
                 break
 
             page += 1
-
+            if(page == 2):
+                break
         return HttpResponse("All files downloaded and saved successfully")
     except Exception as e:
         logging.critical("Lỗi không xác định: %s", e)

@@ -1,0 +1,17 @@
+Số/ Ký hiệu --"numberOrSign": "1155/QĐ-HVM",
+Loại văn bản --docType2.name
+Ngày ban hành --dateIssued
+Đơn vị soạn thảo --"orgCreateName": "Phòng Chính trị - Tổ chức",
+Trích yếu (Tên văn bản) --"preview": "QĐ vv khen thưởng tổng kết công tác năm 2024"
+
+-----
+Người tạo (Người soạn thảo) --"fullName": "Nguyễn Thị Thùy"
+Độ mật
+Độ khẩn
+Nơi nhận nội bộ
+
+----
+api bên ngoài
+https://backend8181.bcy.gov.vn/api/document_out/quick-knowable?q=&page=1&sortBy=&direction=DESC&size=1&read=false
+api bên trong
+https://backend8181.bcy.gov.vn/api/document_out/getDetailToShow/43216

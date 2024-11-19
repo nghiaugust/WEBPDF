@@ -1,0 +1,77 @@
+{
+    "resultCode": 200,
+    "message": "Success",
+    "responseTime": 1731992624397,
+    "data": {
+        "content": [
+            {
+                "id": 43216,
+                "attachments": [
+                    {
+                        "id": 71001,
+                        "active": true,
+                        "createDate": 1731982582679,
+                        "updateDate": 1731982582679,
+                        "createBy": 1965,
+                        "updateBy": 1965,
+                        "name": "1155 QĐ-HVM_0001.pdf__1731982582671",
+                        "type": "application/pdf",
+                        "size": 1961121,
+                        "encrypt": false,
+                        "attachmentType": "DRAFT",
+                        "docId": 43216,
+                        "cmtId": null,
+                        "isChanged": null,
+                        "isIssued": true,
+                        "userId": null,
+                        "displayName": "1155 QĐ-HVM_0001.pdf"
+                    }
+                ],
+                "numberInBook": 1155,
+                "numberOrSign": "1155/QĐ-HVM",
+                "docType2": {
+                    "id": 330,
+                    "name": "Quyết định",
+                    "categoryTypeId": null
+                },
+                "fullName": "Nguyễn Thị Thùy",
+                "dateIssued": 1731974400000,
+                "preview": "QĐ vv khen thưởng tổng kết công tác năm 2024",
+                "status": "DA_BAN_HANH",
+                "important": null,
+                "read": true,
+                "handleType": null,
+                "handleTypeName": null,
+                "fromUserId": null,
+                "canForward": null,
+                "canAddUser": null,
+                "statusName": "Đã ban hành"
+            }
+        ],
+        "pageable": {
+            "sort": {
+                "unsorted": false,
+                "sorted": true,
+                "empty": false
+            },
+            "pageNumber": 0,
+            "pageSize": 1,
+            "offset": 0,
+            "paged": true,
+            "unpaged": false
+        },
+        "last": false,
+        "totalPages": 615,
+        "totalElements": 615,
+        "first": true,
+        "sort": {
+            "unsorted": false,
+            "sorted": true,
+            "empty": false
+        },
+        "numberOfElements": 1,
+        "size": 1,
+        "number": 0,
+        "empty": false
+    }
+}
