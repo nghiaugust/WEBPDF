@@ -20,10 +20,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls')),
-    path('add_data/', include('add_data.urls')),
     path('pdfdata/', include('pdfdata.urls')),
     path('pdf_convert/', include('pdf_convert.urls')),
-    path('ocr/', include('ocr.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('user/', include('user.urls')),
     path('database/', include('database.urls')),

@@ -7,11 +7,9 @@ python -m pip install Pillow
 pip install pytesseract pdf2image reportlab pillow
 pip install ocrmypdf
 pip install PyPDF2 # xu ly lay text tu pdf
-
 python -m pip install django-cors-headers
-
 pip install django-oauth-toolkit
-
+-----------------------------------------------
 b2 chỉnh sửa  database trong setting
 'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -21,15 +19,18 @@ b2 chỉnh sửa  database trong setting
         'HOST': 'localhost',
         'PORT': '3306', # thay đổi nếu đổi port
     }
-
+-----------------------------------------------
 b3 update cơ sở dữ liệu
-xoá 2 file 0001 .py .pyc ở migrations của pdf_convert để xoá file tạo database
-
-python manage.py makemigrations user
 python manage.py migrate
-
 tạo superuser
 python manage.py createsuperuser
-
+-----------------------------------------------
 b4 run server
 python manage.py runserver 8000
+-----------------------------------------------
+nếu muốn sử dụng chức năng đăng nhập user thì phải vào http://127.0.0.1:8000/o/applications 
+để tạo client id và client secret xong copy vào user.views.LoginUser
+Client type: confidential
+Authorization grant type: password-based
+
+
