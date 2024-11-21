@@ -15,3 +15,36 @@ api bên ngoài
 https://backend8181.bcy.gov.vn/api/document_out/quick-knowable?q=&page=1&sortBy=&direction=DESC&size=1&read=false
 api bên trong
 https://backend8181.bcy.gov.vn/api/document_out/getDetailToShow/43216
+
+VanBan :
+api ngoài "data" -> "content" ->
+    ngay_ban_hanh : "dateIssued": 1731974400000
+    id_api : "id": 43216
+api trong "data" ->
+    so_ky_hieu : "numberOrSign": "1155/QĐ-HVM"
+    loai_van_ban : "docTypeName": "Quyết định",
+    nguoi_tao : "personEnterName": "Nguyễn Thị Thùy"
+    trich_yeu : "preview": "QĐ vv khen thưởng tổng kết công tác năm 2024"
+    don_vi_soan_thao: "orgCreateName": "Phòng Chính trị - Tổ chức"
+    so_van_ban : "bookName": "Sổ QĐ, BC, KH, TTr.."
+    do_mat : "docSecurityName": "Thường"
+    do_khan : "docUrgentName": "Thường"
+    nguoi_ky : "signerName": "Hoàng Văn Thức - Học viện Kỹ thuật mật mã"
+them
+    so_luong_data
+    active
+    
+Data
+api trong "data" -> "attachments"
+    name : "displayName": "1155 QĐ-HVM_0001.pdf"
+    type : "type": "application/pdf"
+them
+    original_file :url
+    converted_file :url
+    text_content 
+    active: boolean # kiem tra ton tại
+    convert: boolean # kt trạng thái content
+    clean: boolean # có clean text hay ko
+
+VanBan one to many Data
+1 van ban co nhiều file Data
