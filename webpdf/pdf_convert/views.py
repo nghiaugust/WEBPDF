@@ -2,19 +2,22 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from .models import PDFFile
 from .serializers import PDFFileSerializer
+from database.models import Data
+from database.serializers import DataSerializer
 import ocrmypdf
 import os
 from PyPDF2 import PdfReader
 
 # Upload PDF View
-class UploadPDFView(generics.CreateAPIView):
+"""class UploadPDFView(generics.CreateAPIView):
     queryset = PDFFile.objects.all()
     serializer_class = PDFFileSerializer
+"""
 
 # Convert PDF View (update logic)
 class ConvertPDFView(generics.UpdateAPIView):
-    queryset = PDFFile.objects.all()
-    serializer_class = PDFFileSerializer
+    queryset = Data.objects.filter(active = True)
+    serializer_class = DataSerializer
     #trich xuat van ban
     def extract_text_from_pdf(self, pdf_path):
         """Hàm trích xuất văn bản từ file PDF"""
@@ -79,6 +82,7 @@ class ConvertPDFView(generics.UpdateAPIView):
         except Exception as e:
             return Response({"error": f"Loi khong mong muon xay ra: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
+"""
 # Get Converted PDF View
 class GetConvertedPDFView(generics.RetrieveAPIView):
     queryset = PDFFile.objects.all()
@@ -97,3 +101,4 @@ class GetConvertedPDFView(generics.RetrieveAPIView):
             response['X-Accel-Redirect'] = f'/media/{pdf_file.converted_file.name}'
             return response
         return Response({"error": "Converted file not available"}, status=status.HTTP_404_NOT_FOUND)
+"""
